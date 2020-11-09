@@ -419,7 +419,7 @@ func (b *BuilderOracle) parseParams(args []interface{}, ormApi IOrm) (s string, 
 		paramsToArr = append(paramsToArr, argsReal[0].(string))
 		paramsToArr = append(paramsToArr, argsReal[1].(string))
 
-		switch argsReal[1] {
+		switch strings.ToLower(argsReal[1].(string)) {
 		case "like", "not like":
 			paramsToArr = append(paramsToArr, b.GetPlaceholder())
 			b.IOrm.SetBindValues(argsReal[2])
